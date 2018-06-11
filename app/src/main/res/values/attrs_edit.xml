@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="custom">
+        <attr name="lable" format="string"/>
+        <attr name="hit" format="string"/>
+        <attr name="length" format="integer"/>
+        <attr name="input_typed" format="string"/> <!--number:纯数字类型, number_letter:数字与字母类型-->
+        <attr name="editable" format="boolean"/>
+        <attr name="clear" format="boolean"/>
+        <attr name="send_btn_enable" format="boolean"/>
+        <attr name="divider_enable" format="boolean"/>
+        <attr name="padding_left" format="dimension"/>
+        <attr name="padding_right" format="dimension"/>
+    </declare-styleable>
+</resources>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:weibo="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#fff"
+        android:gravity="center"
+        android:text="验证手机号"
+        android:textColor="#000"
+        android:textSize="17sp"/>
+
+    <com.example.weioule.countdowndemo.SmsEditText
+        android:id="@+id/phone_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        weibo:hit="请输入手机号"
+        weibo:input_typed="number"
+        weibo:lable="手机号"
+        weibo:length="11"
+        weibo:padding_left="16dp"
+        weibo:padding_right="16dp"
+        weibo:send_btn_enable="false"/>
+
+    <com.example.weioule.countdowndemo.SmsEditText
+        android:id="@+id/sms_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        weibo:divider_enable="false"
+        weibo:hit="请输入短信验证码"
+        weibo:input_typed="number_letter"
+        weibo:lable="验证码"
+        weibo:length="6"
+        weibo:padding_left="16dp"
+        weibo:padding_right="16dp"/>
+
+</LinearLayout>
