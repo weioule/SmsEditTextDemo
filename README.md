@@ -10,6 +10,10 @@
 
 下面来看看效果图：
 
+ &nbsp;&nbsp;
+ ![image](https://github.com/weioule/SmsEditTextDemo/blob/master/app/img/001.png)
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ ![image](https://github.com/weioule/SmsEditTextDemo/blob/master/app/img/003.png)
 
 
 就是这样的，一个文案，一个编辑框，一个发送短信按钮和一个清空按钮。具体来说这是一个自定义组合控件，将这些控件给组合起来，而发送短信的按钮又是一个自定义控件。因为涉及到倒计时，原生的控件还不能满足我们。
