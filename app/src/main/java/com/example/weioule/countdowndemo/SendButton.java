@@ -18,7 +18,7 @@ public class SendButton extends TextView {
     private int countdown = 0, waitTime = 60;
     private boolean isAttached, isWait;
 
-    private Runnable timer = new Runnable() {
+    private Runnable runnable = new Runnable() {
 
         @Override
         public void run() {
@@ -28,7 +28,7 @@ public class SendButton extends TextView {
                 setText(nomarlText);
                 isWait = false;
             } else {
-                getHandler().postDelayed(timer, 1000);
+                getHandler().postDelayed(this, 1000);
                 setCountDownText(countdown);
             }
         }
@@ -56,7 +56,7 @@ public class SendButton extends TextView {
                         if (isMobile(sendClickListener.onGetVerifyPhone())) {
                             setClickable(false);
                             countdown = waitTime;
-                            getHandler().post(timer);
+                            getHandler().post(runnable);
                             sendClickListener.onSendVerificationCode();
                             isWait = true;
                         } else {
@@ -77,22 +77,6 @@ public class SendButton extends TextView {
         }
     }
 
-    @Override
-    protected void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        if (isAttached) {
-            isAttached = false;
-            isWait = false;
-            getHandler().removeCallbacks(timer);
-        }
-    }
-
-    public void setOnSendClickListener(SendClickListener listener) {
-        //设置点击监听，否则点击不会触发事件
-        setOnClickListener(null);
-        this.sendClickListener = listener;
-    }
-
     public static boolean isMobile(String mobileNums) {
         /**
          * 判断字符串是否符合手机号码格式
@@ -108,8 +92,25 @@ public class SendButton extends TextView {
         }
     }
 
+    public void setOnSendClickListener(SendClickListener listener) {
+        //设置点击监听，否则点击不会触发事件
+        setOnClickListener(null);
+        this.sendClickListener = listener;
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        if (isAttached) {
+            isAttached = false;
+            isWait = false;
+            getHandler().removeCallbacks(runnable);
+        }
+    }
+
     public interface SendClickListener {
         String onGetVerifyPhone();
+
         void onSendVerificationCode();
     }
 }
