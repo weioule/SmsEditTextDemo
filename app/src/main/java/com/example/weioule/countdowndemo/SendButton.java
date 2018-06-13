@@ -35,13 +35,17 @@ public class SendButton extends TextView {
     };
 
     public SendButton(Context context) {
-        super(context, null);
+        this(context, null);
     }
 
     public SendButton(Context context, AttributeSet attrs) {
-        super(context, attrs);
+        this(context, attrs, 0);
     }
 
+    public SendButton(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+    }
+    
     private void setCountDownText(int time) {
         setText(String.format(waitText, time));
     }
